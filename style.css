@@ -1,0 +1,934 @@
+/* css code layout is the same as that of section */
+/* installing GILROY font family */
+@font-face {
+    font-family: 'gilroylight';
+    src: url('fonts/Gilroy/gilroy-light-webfont.woff2') format('woff2'),
+        url('fonts/Gilroy/gilroy-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'gilroylight', sans-serif;
+}
+
+/* client section carousel code */
+.item {
+    width: 250px;
+    height: 300px;
+}
+
+.img-fluid {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: .2px solid #2B2929;
+    border-radius: 5px;
+    margin: 50px 0;
+}
+
+/* carousel section finished */
+/* animations section started */
+/* from left animation */
+@keyframes fromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-90px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+/* from left fast animation */
+@keyframes fromLeftFast {
+    0% {
+        opacity: 0;
+        transform: translateX(-500px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+/* from to left animation */
+@keyframes fromToLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-200px) translateY(200px) rotateY(90deg);
+    }
+    30%{
+        transform: translateX(-200px) translateY(200px) rotateY(10deg);
+    }
+
+    60%{
+        opacity: 1;
+        transform:  translateX(0) translateY(200px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* from right animation */
+@keyframes fromRight {
+    0% {
+        opacity: 0;
+        transform: translateY(-200px) translateX(-50px) rotateX(0) rotateY(50deg);
+    }
+    50%{
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) translateX(0) rotateX(0) rotateX(0);
+    }
+}
+/* animation for buttom */
+@keyframes fromRightButtom {
+    0% {
+        opacity: 0;
+        transform: translateX(-200px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+/* from top animation */
+@keyframes fromTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-90px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* from bottom animation */
+@keyframes fromBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(90px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes welcome{
+    0%{
+        
+    }
+
+    100%{
+        transform: rotateY(1deg);
+    }
+}
+.welcome{
+    opacity: 1;
+    animation: welcome 1s forwards linear;
+}
+.mbm {
+    opacity: 0;
+}
+
+.mbm,
+.welcome {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.mbm h1,
+.welcome h1 {
+    font-family: 'Rubik' sans-serif;
+    font-size: 90px;
+    font-weight: bold;
+    color: red;
+}
+
+
+
+
+/* underline animation for some items */
+#underline,
+#underline-white {
+    display: inline-block;
+}
+
+#underline::after,
+#underline-white::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #000;
+    transition: width .5s;
+    margin-top: 5px;
+}
+
+#underline:hover::after,
+#underline-white:hover::after {
+    width: 100%;
+}
+
+#underline-white::after {
+    content: '';
+    background-color: rgb(184, 163, 163);
+}
+
+/* underline function code finished */
+
+
+
+/* first section code is given here */
+/* section one is devided into two part: left and right */
+/* left part code is given in below */
+
+.section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background: #000000;
+}
+
+.container {
+    position: relative;
+    width: 92%;
+    margin: 0 auto;
+}
+
+.first {
+    opacity: 0;
+    animation: fromLeft 1.2s 3s forwards;
+}
+
+.box {
+    position: absolute;
+    top: 75px;
+    width: 160px;
+    height: 40px;
+    background: #262626;
+    transition: .2s;
+}
+
+.box:hover {
+    opacity: 0;
+}
+
+.three-angle img {
+    position: absolute;
+    top: 85px;
+    left: 120px;
+    width: 70px;
+    height: 80px;
+    transform: rotate(90deg);
+    transition: .5s;
+}
+
+/* rotate animation creation below */
+
+.three-angle img:hover,
+.three-angle-2 img:hover {
+    transform: rotate(-360deg);
+    opacity: 0;
+
+}
+
+.banner-1 {
+    opacity: 0;
+    position: absolute;
+    top: 55px;
+    left: 190px;
+    animation: fromToLeft 2.5s 1s forwards linear;
+
+}
+
+.banner-1 h1 {
+    font-size: 65px;
+    color: #ffffff;
+    font-weight: 300;
+    line-height: 79px;
+    letter-spacing: 2px;
+}
+
+/* right part code is given here */
+/* fixed navbar code is given here */
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    background: #000;
+    padding: 0 100px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: .5s;
+    z-index: 1000;
+}
+
+.brand {
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.8em;
+    color: #CE0909;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navbar {
+    /* position: fixed;
+    top: 30px;
+    right: 70px; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 250px;
+    height: 50px;
+    line-height: 10px;
+}
+
+.navbar img {
+    width: 100px;
+    height: auto;
+    transition: 1s;
+}
+
+.navbar img:hover {
+    transform: rotateY(360deg);
+}
+
+.line,
+.line-2 {
+    width: 50px;
+    height: 1px;
+    background: #ffffff;
+}
+
+.navbar a {
+    font-family: sans-serif;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: capitalize;
+    color: #ffffff;
+    transition: .3s;
+    -webkit-transition: .3s;
+}
+
+.navbar a:hover {
+    color: #f05555;
+}
+
+/* navbar code is finished here */
+
+.second{
+    position: absolute;
+    top: 20%;
+    right: 170px;
+    opacity: 0;
+    animation: fromLeftFast 1.5s 2s forwards;
+}
+
+.three-angle-2 img {
+    
+    width: 60px;
+    height: 60px;
+    transition: .5s;
+}
+
+.banner-2 {
+    opacity: 0;
+    position: absolute;
+    top: 45%;
+    right: 50px;
+    width: 500px;
+    animation: fromRight 1s 2.5s forwards;
+}
+
+.banner-2 p {
+    font-size: 24px;
+    line-height: 38px;
+    color: #AFAFAF;
+    text-align: left;
+    font-weight: 300;
+    transition: .5s;
+}
+
+.banner-2 p:hover{
+    transform: translateY(-30px);
+}
+/* header button code should be here */
+button {
+    opacity: 0;
+    width: 200px;
+    height: 50px;
+    margin-top: 40px;
+    border-radius: 25px;
+    outline: none;
+    border: none;
+    background: #666666;
+    line-height: 0;
+    cursor: pointer;
+    transition: .5s;
+    animation: fromRightButtom .6s 3s forwards linear;
+}
+
+button a {
+    text-decoration: none;
+    font-size: 22px;
+    line-height: 0;
+    color: #ffffff;
+    transition: .5s;
+}
+
+button:hover {
+    background: transparent;
+    margin-left: -30px;
+}
+
+button:hover a {
+    color: #e02f2f;
+}
+
+button a span {
+    font-weight: 900;
+    font-size: 25px;
+    padding-left: 2px;
+}
+
+/* Second section code is here */
+/* full background video section */
+
+.section-img {
+    width: 100%;
+    height: 100vh;
+    background: url(mbm-video.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* BIG section code is given here */
+/* header section is given here */
+
+.section-big {
+    position: relative;
+    background: #000000;
+}
+
+.header-section-big {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h3 {
+    margin: 100px 0 50px 0;
+    padding: 0px 0 0px 0;
+    color: #ffffff;
+    font-size: 25px;
+    font-weight: 300;
+}
+
+.line-2 {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    transform: rotate(90deg);
+    margin-bottom: 50px;
+}
+
+/* Big section video code is given here */
+
+.video img {
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%);
+    -moz-transform: translate(-50%);
+    transform: translate(-50%);
+    margin: 0 auto;
+    width: 516px;
+    height: 344px;
+    object-fit: cover;
+    z-index: 1;
+    -o-object-fit: cover;
+}
+
+video {
+    display: block;
+    z-index: 10;
+}
+
+/* video code is finished here */
+
+/* frames section code started */
+/* frame code is given here */
+
+.section-frames {
+    position: relative;
+    background: #000000;
+    height: 1200px;
+}
+
+.frame-1,
+.frame-2 {
+    position: absolute;
+    top: 320px;
+    left: 51%;
+    transform: translateX(-50%);
+    width: 852px;
+    height: 800px;
+    border: 1px solid #a4aec2;
+}
+
+.frame-1 {
+    position: absolute;
+    top: 285px;
+    left: 48.5%;
+    transform: translateX(-50%);
+}
+
+/* frames devided into two section: box-1 and box-2 */
+/* below you may find boxes code */
+
+.box-1,
+.box-2 {
+    width: 50%;
+    height: 800px;
+    float: left;
+}
+
+.box-1 {
+    border-right: 1px solid #a4aec2;
+}
+
+.clear {
+    clear: both;
+}
+
+.box-1 h2,
+.box-2 h2 {
+    color: #ffffff;
+    text-align: center;
+    font-size: 52px;
+    font-weight: 300;
+    margin: 120px 0 50px 0;
+    line-height: 87px;
+}
+
+.box-1 p,
+.box-2 p {
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 300;
+    padding: 0 3px 45px 3px;
+}
+
+.litte-frame {
+    position: absolute;
+    top: 200px;
+    left: 171px;
+    width: 91px;
+    height: 178px;
+    border: 15px solid #ffffff;
+    transition: .3s;
+}
+.litte-frame:hover{
+    opacity: 0;
+}
+
+/* Clients section css code started here */
+/* first header section of clients section code will be given */
+
+.section-clients-header {
+
+    width: 100%;
+    height: 800px;
+    background: #07080C;
+}
+
+.clients-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.clients-header h3 {
+    margin-top: 50px;
+    font-size: 25px;
+}
+
+.clients-header .line-2 {
+    margin: 10px 0 60px 0;
+}
+
+.clients-header p {
+    color: #666;
+    font-size: 25px;
+    line-height: 50px;
+    text-align: center;
+
+}
+
+/* Half scrolling page section code started */
+
+.half-scrolling-page {
+    display: flex;
+}
+
+.scroll {
+    width: 50%;
+    min-height: 200vh;
+    background: #000000;
+    box-sizing: border-box;
+}
+
+.fixed-right {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    background: #131313;
+}
+
+/* right fixed part code started */
+.top-fix {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.fixed-media {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px 0 15px;
+}
+
+.fixed-media > p {
+    font-size: 25px;
+    color: #989ea3;
+    font-weight: 300;
+}
+
+.fixed-media > .line {
+    margin: 0 50px;
+}
+
+.media i {
+    color: #6F7377;
+    padding: 15px;
+    transition: .3s;
+}
+
+.media i:hover {
+    color: #ffffff;
+}
+
+.points {
+    width: 30%;
+}
+
+.points img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.top-right {
+    width: 100px;
+    height: 40%;
+}
+
+.bottom-fix {
+    height: 60%;
+    width: 100%;
+}
+
+.bottom-fix img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* right fixed section code finished */
+/* left scrolling section started */
+
+.scroll img {
+    width: 33.334%;
+    height: 200px;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    float: left;
+}
+
+/* CONTACTS section started */
+.contacts {
+    width: 100%;
+    background: #ffffff;
+}
+
+.contact-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.contact-header h3 {
+    color: #07080C;
+    font-size: 41px;
+    margin-top: 100px;
+}
+
+.contact-header .line-2 {
+    background: #000000;
+    margin: 30px 0 60px 0;
+}
+
+.contact-header .address h1 {
+    color: #07080C;
+    font-size: 70px;
+    font-weight: 300;
+
+}
+
+/* contact header finished */
+/* contact body started */
+
+.contact-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 1000px;
+    transform: translateX(-48px);
+    margin: 100px auto 50px;
+}
+
+.contact-left,
+.contact-right {
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tel-num {
+    transform: translateX(50px);
+}
+
+.line-pr {
+    width: 50px;
+    height: 1.4px;
+    background: #07080C;
+}
+
+.contact-left h3,
+.contact-right h3 {
+    margin: 0;
+    color: #07080C;
+    font-size: 40px;
+}
+
+/* contact footer part started */
+
+.contact-footer {
+    margin: 0 auto;
+    width: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 100px;
+}
+
+.contact-footer p {
+    color: #07080C;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+/* contact section finished */
+
+/* this is all-sections class used to combine all section, this class is used to created sticky footer */
+.all-sections {
+    width: 100%;
+    position: relative;
+    z-index: 10;
+    margin-bottom: 100vh;
+}
+
+/* sticky footer section code started */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: #292929;
+    color: #666666;
+    padding-bottom: 0px;
+}
+
+.footer-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 0 70px 0;
+}
+
+.footer img {
+    transition: 1s;
+}
+
+.footer img:hover {
+    transform: rotateY(360deg);
+}
+
+.footer .line-2 {
+    margin: 25px 0 75px;
+}
+
+.footer p {
+    color: #F1EAEA;
+    font-size: 25px;
+    font-weight: 300;
+}
+
+/* footer header finished */
+/* EMAIL section code started here */
+
+.message {
+    width: 855px;
+    height: 105px;
+    margin: 0 auto;
+    border: 1px solid #666666;
+    border-radius: 62px;
+    padding: 0 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+    margin-bottom: 50px;
+}
+
+.focused {
+    border: 1.5px solid #fff;
+    box-sizing: border-box;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.e-mail {
+    font-family: 'Rubik', sans-serif;
+    color: #F1EAEA;
+    font-size: 25px;
+    font-weight: 300;
+    width: 600px;
+    height: 50px;
+    padding-left: 20px;
+    margin-right: 0px;
+    outline: none;
+    border: none;
+    border-radius: 25px;
+    background: transparent !important;
+}
+
+#submit {
+    font-family: 'Rubik', sans-serif;
+    color: #F1EAEA;
+    font-size: 25px;
+    letter-spacing: 1px;
+    font-weight: 300;
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+    border: none;
+    background: none;
+    transition: .4s;
+}
+
+#submit:hover {
+    color: rgb(245, 51, 51);
+}
+
+/* footer section code finished */
+
+.section1 {
+    position: relative;
+    margin: 0;
+    font-size: 0;
+    overflow: hidden;
+
+}
+
+.section1 canvas {
+    background: black;
+    width: 100vw;
+    height: 100vh;
+
+}
+
+
+.section1 input {
+    width: 250px;
+    height: 40px;
+    line-height: 40px;
+    position: absolute;
+    bottom: 35px;
+    left: calc(50% - 125px);
+    background: none;
+    color: white;
+    font-size: 30px;
+    font-family: arial;
+    text-align: center;
+    border: 1px solid white;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* .section2{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+} */
